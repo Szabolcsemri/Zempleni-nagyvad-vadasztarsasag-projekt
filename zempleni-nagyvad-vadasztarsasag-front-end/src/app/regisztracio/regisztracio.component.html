@@ -1,0 +1,50 @@
+
+<div id="hatter">
+<div class="container mt-5">
+  <h2>Regisztráció</h2>
+  <form (ngSubmit) = "onSubmit()">
+    
+    <div class="mb-3">
+      <label for="email" class="form-label">Email cím</label>
+      <input type="email" [(ngModel)]="felhasznalo.email" class="form-control" id="email" name="email" required placeholder="Írd be az email címet">
+      <div *ngIf="errorMessage" class="invalid-feedback">
+        {{ errorMessage }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="vezeteknev" class="form-label">Vezetéknév</label>
+      <input type="text" [(ngModel)]="felhasznalo.vezeteknev" class="form-control" id="vezeteknev" name="vezeteknev" required placeholder="Vezetéknév">
+      <div class="invalid-feedback">
+        Kérjük, adja meg a vezetéknevét.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="keresztnev" class="form-label">Keresztnév</label>
+      <input type="text" [(ngModel)]="felhasznalo.keresztnev" class="form-control" id="keresztnev" name="keresztnev" required placeholder="Keresztnév">
+      <div class="invalid-feedback">
+        Kérjük, adja meg a keresztnevét.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Jelszó</label>
+      <input type="password" [(ngModel)]="felhasznalo.jelszo" class="form-control" id="password" name="jelszo" required minlength="8" placeholder="Jelszó (min. 8 karakter)">
+      <div class="invalid-feedback">
+        Kérjük, adjon meg egy érvényes jelszót (minimum 8 karakter).
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="passwordujra" class="form-label">Jelszó újra</label>
+      <input type="password" [(ngModel)]="felhasznalo.jelszoujra" class="form-control" id="passwordujra" name="jelszoujra" required minlength="8" placeholder="Jelszó újra">
+      <div class="invalid-feedback">
+        Kérjük, adja meg újra a jelszavát (minimum 8 karakter).
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Regisztráció</button>
+  </form>
+</div>
+</div>

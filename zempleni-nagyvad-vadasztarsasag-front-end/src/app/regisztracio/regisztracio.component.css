@@ -1,0 +1,84 @@
+
+.container {
+  max-width: 40%;
+  margin: 5% auto;
+  padding: 20px;
+  background-color: #233d28; 
+  border-radius: 12px;
+  color: #fffaf0;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #d4c5a8;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+
+input.form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fefefe;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+
+input.form-control:focus {
+  outline: none;
+  border-color: #6c9b77;
+  box-shadow: 0 0 5px rgba(108, 155, 119, 0.7);
+}
+
+
+button.btn-primary {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #4a8c5e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+button.btn-primary:hover {
+  background-color: #366945;
+  transform: scale(1.08);
+}
+
+
+.invalid-feedback {
+  color: #e57373;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+
+
+#hatter{
+  background-image: url('../../assets/hatter.jpg');
+  margin: 0;
+  padding: 8vw;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 140vh; 
+}
+
+form{
+  margin-top: 20px;
+}
