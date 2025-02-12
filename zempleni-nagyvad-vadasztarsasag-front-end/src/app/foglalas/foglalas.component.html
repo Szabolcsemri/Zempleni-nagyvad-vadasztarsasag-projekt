@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem; margin-bottom: 1rem;">
+    <img src="../../assets/vaddisznó.jpg" class="card-img-top" alt="{{vadaszat.vadfaj.nev}}">
+    <div class="card-body">
+      <h5 class="card-title">{{vadaszat.vadfaj.nev}}</h5>
+      <p class="card-text">
+        Helyszín: {{vadaszat.helyszin.nev}}<br>
+        Időtartam: {{vadaszat.kezdete | date: 'short'}} - {{vadaszat.vege | date: 'short'}}
+      </p>
+      <button class="btn btn-primary">Csatlakozás</button>
+    </div>
+  </div>
+  

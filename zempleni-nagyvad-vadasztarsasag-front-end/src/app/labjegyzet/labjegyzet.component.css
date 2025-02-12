@@ -1,0 +1,39 @@
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+  }
+  
+  .footer-tartalom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .bal-tartalom p {
+    margin: 5px 0;
+  }
+  
+  .facebook-icon {
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+  }
+  
+  
+  
+  .rolunk-gomb {
+    
+  background-color: white;
+  border-radius: 9px;
+   
+  }
+  
+  
+  

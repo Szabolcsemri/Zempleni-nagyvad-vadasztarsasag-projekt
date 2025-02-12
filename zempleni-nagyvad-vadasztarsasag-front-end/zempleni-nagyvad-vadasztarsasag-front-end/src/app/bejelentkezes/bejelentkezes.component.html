@@ -1,0 +1,29 @@
+<div id="hatter">
+<div class="container mt-5">
+    <h2>Bejelentkezés</h2>
+    <form (ngSubmit) = "onSubmit()">
+      
+      <div class="mb-3">
+        <label for="email" class="form-label">Email cím</label>
+        <input type="email" [(ngModel)]="felhasznalo.email" class="form-control" id="email" name="email" required placeholder="Írd be az email címet">
+        <div *ngIf="errorMessage" class="invalid-feedback">
+          {{ errorMessage }}
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="password" class="form-label">Jelszó</label>
+        <input type="password" [(ngModel)]="felhasznalo.jelszo" class="form-control" id="password" name="jelszo" required minlength="8" placeholder="Jelszó">
+        <div class="invalid-feedback">
+          Jelszó
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+      <div *ngIf="uzenet" class="alert" [ngClass]="{'alert-success': allapot === 'success', 'alert-danger': allapot === 'error'}" role="alert">
+        {{ uzenet }}
+      </div>
+    </form>
+  </div>
+  </div>
+  

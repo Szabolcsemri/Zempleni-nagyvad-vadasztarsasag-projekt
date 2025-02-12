@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div class="logo">
+    <a routerLink="/foldal"><img src="../assets/logo.jpg" alt="Vadászati portál" width="60" height="40"></a>
+    </div>
+   
+    <a class="navbar-brand" routerLink="/foldal">Főoldal</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="navbar-brand" aria-current="page" routerLink="/vadaszatok">Vadászatok</a>
+        </li>
+      </ul>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="navbar-brand" aria-current="page" routerLink="/Konfiguráció">Konfiguráció</a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="d-flex ms-auto">
+        <button *ngIf="!isLoggedIn" class="btn btn-outline-success " type="button" [routerLink]="'/regisztracio'">Regisztráció</button>
+        <button *ngIf="!isLoggedIn" class="btn btn-outline-success" type="button" [routerLink]="'/bejelentkezes'">Bejelentkezés</button>
+        <button *ngIf="isLoggedIn" class="btn btn-outline-success" type="button"(click)="onLogout()">Kijelentkezés</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div *ngIf="uzenet" class="alert" [ngClass]="{'alert-success': allapot === 'success', 'alert-danger': allapot === 'error'}" role="alert">
+  {{   uzenet }}
+</div>
+
+
+<router-outlet></router-outlet>
+
+<app-labjegyzet></app-labjegyzet>
