@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <h1>Vadászat Szervezés</h1>
+    <p class="text-center text-muted">
+    Üdvözöllek a Zempléni Nagyvad Vadásztársaág  vadászat szervezés oldalán! Itt lehetőséged nyílik a vadászatok konfigurálására: Állítsd össze a számodra leginkább megfelelő vadászatot és szabd az igényeidnek megfelelőre , majd foglald le a helyed még ma!
+   </p>
+ 
+   <div class="row justify-content-center mb-4">
+     <div class="col-md-4">
+         <label for="vadaszatTipus">Vadfaj</label>
+         <select class="form-select" id="vadaszatTipus" [(ngModel)]="vadaszatTipus">
+             <option value="1">Vaddisznó</option>
+             <option value="2">Szarvas bika</option>
+             <option value="3">Őzbak</option>
+             <option value="4">Fácán</option>
+             <option value="5">Muflon</option>
+         </select>
+     </div>
+     <div class="col-md-4">
+         <label for="helyszin">Helyszín</label>
+         <select class="form-select" id="helyszin" [(ngModel)]="helyszin">
+             <option value="1">Liget</option>
+             <option value="2">Szicsok</option>
+             <option value="3">Mogyorós</option>
+             <option value="4">Gyertyán hegy</option>
+             <option value="5">Fekete hegy</option>
+         </select>
+     </div>
+ </div>
+ 
+ <div class="row justify-content-center mb-4">
+    <div class="col-md-4">
+      <label for="kezdoDatum">Kezdő dátum</label>
+      <input type="date" class="form-control" id="kezdoDatum" [(ngModel)]="kezdoDatum" [attr.min]="currentDate" (change)="onKezdoDatumChange()">
+    </div>
+    <div class="col-md-4">
+      <label for="zaroDatum">Záró dátum</label>
+      <input type="date" class="form-control" id="zaroDatum" [(ngModel)]="zaroDatum" [attr.min]="kezdoDatum" [attr.max]="maxZaroDatum">
+    </div>
+  </div>
+  
+  
+ 
+ <div class="gomb d-flex justify-content-center">
+     <button class="btn btn-outline-success" (click)="foglalas()">Foglalás</button>
+   </div>
+   
+   <div *ngIf="uzenet" class="alert mt-3" [ngClass]="{'alert-success': allapot === 'success', 'alert-danger': allapot === 'danger'}">
+     {{ uzenet }}
+   </div>
+ 
+ </div>

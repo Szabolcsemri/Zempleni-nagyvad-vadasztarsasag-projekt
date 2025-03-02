@@ -1,0 +1,31 @@
+.container {
+    max-width: 1350px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    background: linear-gradient(to bottom, #e2dbc9, #f3efdf); 
+    border-radius: 15px; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+    border: 2px solid #a38e76;
+    min-height: 75vw; 
+}
+
+
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 20px;
+  color: #2c3e50;
+}
+
+p {
+  font-size: 1rem;
+  color: #34495e;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
