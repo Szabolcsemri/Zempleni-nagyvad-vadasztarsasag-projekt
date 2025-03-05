@@ -6,7 +6,8 @@
         Helyszín: {{vadaszat.helyszin.nev}}<br>
         Időtartam: {{vadaszat.kezdete | date: 'y. MMMM d.'}} - {{vadaszat.vege | date: 'y. MMMM d.'}}
       </p>
-      <button class="btn btn-primary">Csatlakozás</button>
+      <button *ngIf="isLoggedIn && !csatlakozott" (click)="csatlakozas(vadaszat.foglalt_vadaszat_id)">Csatlakozás</button>
+      <button *ngIf="isLoggedIn && csatlakozott" (click)="lecsatlakozas(vadaszat.foglalt_vadaszat_id)">Lecsatlakozás</button>
     </div>
   </div>
   

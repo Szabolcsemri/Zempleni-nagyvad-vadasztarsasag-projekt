@@ -31,4 +31,30 @@ export class vadaszatservice {
 
       return this.http.post<any>(this.apiURL, foglalas, { headers });
   }
+  foglalasAllapot(vadaszatId: number): Observable<{ csatlakozott: boolean }> {
+    const token = localStorage.getItem("token");
+    if (!token){
+      return new Observable(observer => observer.next({ csatlakozott: false }));
+    }
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    return this.http.get<{ csatlakozott: boolean }>(`${this.apiURL}/${vadaszatId}/csatlakozas`, { headers });
+  }
+
+  csatlakozas(vadaszatId: number): Observable<any> {
+    const token = localStorage.getItem("token");
+    if (!token){
+      throw new Error("Nincs bejelentkezett felhasználó.");
+    }
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    return this.http.post<any>(`${this.apiURL}/${vadaszatId}/csatlakozas`, {}, { headers });
+  }
+  
+  lecsatlakozas(vadaszatId: number): Observable<any> {
+    const token = localStorage.getItem("token");
+    if (!token){
+      throw new Error("Nincs bejelentkezett felhasználó.");
+    }
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    return this.http.delete(`${this.apiURL}/${vadaszatId}/csatlakozas`, { headers });
+  }
 }
