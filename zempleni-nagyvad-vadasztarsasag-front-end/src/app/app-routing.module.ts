@@ -12,6 +12,7 @@ import { SzervezesComponent } from './szervezes/szervezes.component';
 import { EnciklopediaComponent } from './enciklopedia/enciklopedia.component';
 import { FormsModule } from '@angular/forms';
 import { FelhasznaloAdatokComponent } from './felhasznalo-adatok/felhasznalo-adatok.component';
+import { FelhasznalokComponent } from './felhasznalok/felhasznalok.component';
 
 
 
@@ -29,7 +30,7 @@ const routes: Routes = [
   { path: 'szervezes', component: SzervezesComponent },
   { path: 'enciklopedia', component: EnciklopediaComponent },
   { path: 'felhasznalo-adatok', component: FelhasznaloAdatokComponent },
- 
+  { path: 'felhasznalok', component: FelhasznalokComponent }
 ];
 
 @NgModule({

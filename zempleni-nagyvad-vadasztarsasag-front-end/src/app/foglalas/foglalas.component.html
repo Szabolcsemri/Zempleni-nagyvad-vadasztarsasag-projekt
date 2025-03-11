@@ -1,4 +1,4 @@
-<div *ngIf="!torolve" class="card" style="width: 18rem; margin-bottom: 1rem;"></div>
+<div *ngIf="!torolve" class="card" style="width: 18rem; margin-bottom: 1rem;">
     <img [src]="'assets/' + vadaszat.vadfaj.foto_url" class="fixed-img card-img-top" alt="{{vadaszat.vadfaj.nev}}">
     <div class="card-body">
       <h5 class="card-title">{{vadaszat.vadfaj.nev}}</h5>
@@ -10,6 +10,6 @@
       <button *ngIf="isLoggedIn && csatlakozott" (click)="lecsatlakozas(vadaszat.foglalt_vadaszat_id)">Lecsatlakozás</button>
       <button *ngIf="isAdmin" (click)="vadaszatAdminTorles(vadaszat.foglalt_vadaszat_id)">Törlés</button>
     </div>
-  
+  </div>
 
   

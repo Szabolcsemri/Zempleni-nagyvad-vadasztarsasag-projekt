@@ -56,4 +56,36 @@
   }
   
 
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;  /* Az elemek átkerülnek a következő sorba, ha nem férnek el */
+    justify-content: space-between; /* Egyenlő távolságokat hagy a kártyák között */
+    gap: 1rem; /* A kártyák közötti távolság */
+    margin: 0 13rem 0 13rem;
+  }
   
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: calc(33.33% - 1rem); /* Három kártya elhelyezése soronként, figyelembe véve a gap-et */
+    margin-bottom: 1rem; /* Alsó margó a kártyák között */
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+.alert{
+  margin-top: 1vw;
+}

@@ -17,6 +17,7 @@ import { FoglalasComponent } from './foglalas/foglalas.component';
 import { SzervezesComponent } from './szervezes/szervezes.component';
 import { EnciklopediaComponent } from './enciklopedia/enciklopedia.component';
 import { FelhasznaloAdatokComponent } from './felhasznalo-adatok/felhasznalo-adatok.component';
+import { FelhasznalokComponent } from './felhasznalok/felhasznalok.component';
 
 
 
@@ -34,6 +35,7 @@ import { FelhasznaloAdatokComponent } from './felhasznalo-adatok/felhasznalo-ada
     SzervezesComponent,
     EnciklopediaComponent,
     FelhasznaloAdatokComponent,
+    FelhasznalokComponent,
    
     
   ],

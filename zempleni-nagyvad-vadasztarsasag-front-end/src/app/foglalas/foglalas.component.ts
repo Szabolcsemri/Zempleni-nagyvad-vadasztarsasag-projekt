@@ -47,13 +47,15 @@ csatlakozott: boolean = false;
     });
   }
   vadaszatAdminTorles(vadaszatId: number) {
-    if (!vadaszatId) {
-      console.error("HIBA: vadaszatId undefined vagy null!");
-      return;
+    if(confirm("Biztosan törölni szeretné a vadászatot?")) {
+      if (!vadaszatId) {
+        console.error("HIBA: vadaszatId undefined vagy null!");
+        return;
+      }
+      this.vadaszatservice.vadaszatTorlesAdmin(vadaszatId).subscribe(() => {
+        this.torolve = true;
+      });
     }
-    this.vadaszatservice.vadaszatTorlesAdmin(vadaszatId).subscribe(() => {
-      this.torolve = true;
-    });
   }
 }
 

@@ -10,10 +10,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./felhasznalo-adatok.component.css']
 })
 export class FelhasznaloAdatokComponent implements OnInit {
-  felhasznalo: any = {};  
+  felhasznalo: any = {};
+  felhasznalok: any[] = [];
   profileForm: FormGroup;  
   uzenet: string = '';
   allapot: string = '';
+  isAdmin: boolean = false;
   constructor( 
     private authService: AuthService, 
     private router: Router,
@@ -28,6 +30,8 @@ export class FelhasznaloAdatokComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin();
+
     this.http.get('http://localhost:5000/profile', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }).subscribe(
@@ -38,6 +42,19 @@ export class FelhasznaloAdatokComponent implements OnInit {
         console.error('Hiba történt a profil adatainak lekérése során!', err);
       }
     );
+
+    if(this.isAdmin){
+      this.http.get('http://localhost:5000/profile/felhasznalok', {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      }).subscribe(
+        (data: any) => {
+          this.felhasznalok = data.data;  
+        },
+        (err) => {
+          console.error('Hiba történt a felhasználók lekérése során!', err);
+        }
+      );
+    }
   }
   
   onSubmit() {
@@ -88,6 +105,24 @@ export class FelhasznaloAdatokComponent implements OnInit {
       );
     }
   }
+  onDeleteUser(id: number) {
+    if (confirm('Biztosan törölni szeretnéd ezt a felhasználót?')) {
+      this.http.delete(`http://localhost:5000/profile/felhasznalok/${id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      }).subscribe(
+        (response: any) => {
+          this.uzenet = response.message;
+          this.allapot = 'success';
   
+          this.felhasznalok = this.felhasznalok.filter(user => user.felhasznalo_id !== id);
+        },
+        (err) => {
+          console.error('Hiba történt a felhasználó törlése során!', err);
+          this.uzenet = 'Hiba történt a felhasználó törlése során!';
+          this.allapot = 'error';
+        }
+      );
+    }
+  }
 
 }
