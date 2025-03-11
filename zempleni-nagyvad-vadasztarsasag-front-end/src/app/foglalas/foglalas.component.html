@@ -1,0 +1,18 @@
+<div *ngIf="!torolve" class="card" style="width: 18rem; margin-bottom: 1rem;">
+    <img [src]="'assets/' + vadaszat.vadfaj.foto_url" class="fixed-img card-img-top" alt="{{vadaszat.vadfaj.nev}}">
+    <div class="card-body">
+      <h5 class="card-title">{{vadaszat.vadfaj.nev}}</h5>
+      <p class="card-text">
+        Helyszín: {{vadaszat.helyszin.nev}}<br>
+        Időtartam: {{vadaszat.kezdete | date: 'y. MMMM d.'}} - {{vadaszat.vege | date: 'y. MMMM d.'}}
+      </p>
+      <button *ngIf="isLoggedIn && !csatlakozott" (click)="csatlakozas(vadaszat.foglalt_vadaszat_id)">Csatlakozás</button>
+      <button *ngIf="isLoggedIn && csatlakozott" (click)="lecsatlakozas(vadaszat.foglalt_vadaszat_id)">Lecsatlakozás</button>
+      <button *ngIf="isAdmin" (click)="vadaszatAdminTorles(vadaszat.foglalt_vadaszat_id)">Törlés</button>
+      <button *ngIf="!isAdmin && isLoggedIn && vadaszat.letrehozo_felhasznalo_id === userId" (click)="vadaszatTorles(vadaszat.foglalt_vadaszat_id)">
+        Vadászat törlése
+      </button>      
+    </div>
+  </div>
+
+  
