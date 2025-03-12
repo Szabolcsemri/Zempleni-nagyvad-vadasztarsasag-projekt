@@ -20,10 +20,6 @@ const felhasznalo = sequelize.define('felhasznalo', {
         allowNull: false,
         uniqe: true
     },
-    telefonszam: {
-        type: DataTypes.STRING(20),
-        allowNull: true
-    },
     jelszo: {
         type: DataTypes.STRING,
         allowNull: false

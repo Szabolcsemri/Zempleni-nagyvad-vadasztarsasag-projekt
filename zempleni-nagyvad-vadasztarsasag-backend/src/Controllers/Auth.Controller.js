@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import { Op } from "sequelize";
 dotenv.config();
 
-const JWT_SECRET = process.env.JWT_SECRET || "SECRET_KEY";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export default{
     async ProfileGetAdminController(req, res){
@@ -178,7 +178,7 @@ export default{
                 {jelszo: hashJelszo},
                 {where: {felhasznalo_id}}
             );
-            res.json({
+            res.status(200).json({
                 error: false,
                 message: "Sikeres jelszó módosítás!"
             });
@@ -206,11 +206,18 @@ export default{
                     message: "Érvénytelen email cím!"
                 });
             }
-            const nevRegex = /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
-            if (!nevRegex.test(keresztnev) || !nevRegex.test(vezeteknev)){
+            const nevHelyes = /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
+            if (!nevHelyes.test(keresztnev) || !nevHelyes.test(vezeteknev)){
                 return res.status(400).json({
                     error: true,
                     message: "A név csak betűket tartalmazhat!"
+                });
+            }
+            const jelszoHelyes = /^(?=.*\d)[A-Za-z\d]{8,}$/.test(jelszo);
+            if (!jelszoHelyes){
+                return res.status(400).json({
+                    error: true,
+                    message: "A jelszónak minimum 8 karakter hosszúnak kell lennie és legalább egy számot tartalmaznia kell!"
                 });
             }
             if (jelszo.length < 8){

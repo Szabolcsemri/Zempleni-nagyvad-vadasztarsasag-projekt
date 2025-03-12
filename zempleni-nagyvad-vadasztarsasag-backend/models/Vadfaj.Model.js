@@ -11,10 +11,6 @@ const Vadfaj = sequelize.define('vadfaj', {
         type: DataTypes.STRING(255),
         allowNull: false
     },
-    leiras: {
-        type: DataTypes.TEXT,
-        allowNull: true
-    },
     foto_url: {
         type: DataTypes.STRING(255),
         allowNull: true
