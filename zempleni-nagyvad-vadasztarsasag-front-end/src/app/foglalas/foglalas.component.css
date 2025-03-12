@@ -38,6 +38,16 @@
     background-color: #1c7430; 
   }
   
+  .gombok {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+  }
+  
+  
+  
 
   
   

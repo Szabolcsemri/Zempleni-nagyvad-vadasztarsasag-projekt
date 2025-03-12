@@ -6,12 +6,14 @@
         Helyszín: {{vadaszat.helyszin.nev}}<br>
         Időtartam: {{vadaszat.kezdete | date: 'y. MMMM d.'}} - {{vadaszat.vege | date: 'y. MMMM d.'}}
       </p>
+      <div class="gombok">
       <button *ngIf="isLoggedIn && !csatlakozott" (click)="csatlakozas(vadaszat.foglalt_vadaszat_id)">Csatlakozás</button>
-      <button *ngIf="isLoggedIn && csatlakozott" (click)="lecsatlakozas(vadaszat.foglalt_vadaszat_id)">Lecsatlakozás</button>
+      <button *ngIf="isLoggedIn && csatlakozott && vadaszat.letrehozo_felhasznalo_id !== userId && (!isAdmin || vadaszat.letrehozo_felhasznalo_id !== userId)" (click)="lecsatlakozas(vadaszat.foglalt_vadaszat_id)">Lecsatlakozás</button>
       <button *ngIf="isAdmin" (click)="vadaszatAdminTorles(vadaszat.foglalt_vadaszat_id)">Törlés</button>
       <button *ngIf="!isAdmin && isLoggedIn && vadaszat.letrehozo_felhasznalo_id === userId" (click)="vadaszatTorles(vadaszat.foglalt_vadaszat_id)">
         Vadászat törlése
-      </button>      
+      </button>  
+      </div>    
     </div>
   </div>
 

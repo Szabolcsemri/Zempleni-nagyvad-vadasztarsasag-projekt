@@ -54,10 +54,11 @@ export class RegisztracioComponent {
     this.errorMessage = 'Minden mezőt ki kell tölteni!';
     return;
     }
-    if (this.felhasznalo.jelszo.length < 8) {
-      this.uzenet = 'A jelszónak legalább 8 karakter hosszúnak kell lennie!';
+    const jelszoRegex = /^(?=.*\d)[A-Za-z\d]{8,}$/;
+    if (!jelszoRegex.test(this.felhasznalo.jelszo)) {
+      this.uzenet = 'A jelszónak minimum 8 karakterből kell állnia, és tartalmaznia legalább egy számot.';
       this.allapot = 'error';
-      this.errorMessage = 'A jelszónak legalább 8 karakter hosszúnak kell lennie!';
+      this.errorMessage = 'A jelszónak minimum 8 karakterből kell állnia, és tartalmaznia legalább egy számot.';
       return;
     }
     if (this.felhasznalo.jelszo !== this.felhasznalo.jelszoujra) {
