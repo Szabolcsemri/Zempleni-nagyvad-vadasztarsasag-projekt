@@ -1,0 +1,106 @@
+
+        ###AUTH ROUTER VÉGPONTOK
+
+    ###felhasználói végpontok
+
+###/register RegisterPostController
+POST http://localhost:5000/register
+content-type: application/json
+
+{
+    "keresztnev": "TesztKer",
+    "vezeteknev": "TesztVez",
+    "jelszoujra": "jelszo123",
+    "email": "Teszt@teszt.com",
+    "jelszo": "jelszo123"
+}
+
+###/login LoginPostController
+POST http://localhost:5000/login
+content-type: application/json
+
+{
+    "email": "Teszt@teszt.com",
+    "jelszo": "jelszo123"
+}
+
+###/profile ProfilePatchController
+PATCH http://localhost:5000/profile
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjAsImlhdCI6MTc0MTg1MTQxNCwiZXhwIjoxNzQxODU1MDE0fQ.cNrB9x6u_Lvb0t8P5EAsRWJIVEgEXoW9avZlrDYKZ2w
+
+{
+    "jelszo": "jelszo123",
+    "ujjelszo": "jelszo12345",
+    "jelszoujra": "jelszo12345"
+}
+
+###/profile ProfileGetController
+GET http://localhost:5000/profile
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjAsImlhdCI6MTc0MTg1MTQxNCwiZXhwIjoxNzQxODU1MDE0fQ.cNrB9x6u_Lvb0t8P5EAsRWJIVEgEXoW9avZlrDYKZ2w
+
+
+###/profile ProfileDeleteController
+DELETE http://localhost:5000/profile
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjAsImlhdCI6MTc0MTg1MTQxNCwiZXhwIjoxNzQxODU1MDE0fQ.cNrB9x6u_Lvb0t8P5EAsRWJIVEgEXoW9avZlrDYKZ2w
+
+    ###admin végpontok
+
+###/profile/felhasznalok ProfileGetAdminController
+GET http://localhost:5000/profile/felhasznalok
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjEsImlhdCI6MTc0MTg1MTYyNCwiZXhwIjoxNzQxODU1MjI0fQ.h0rSZ_YTkhhjCUF_xORZM6yB0rDlNA5ao3UlF3pp1tg
+
+###/profile/felhasznalok/:id ProfileDeleteAdminController
+DELETE http://localhost:5000/profile/felhasznalok/47
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjEsImlhdCI6MTc0MTg1MTYyNCwiZXhwIjoxNzQxODU1MjI0fQ.h0rSZ_YTkhhjCUF_xORZM6yB0rDlNA5ao3UlF3pp1tg
+
+        ###VADASZATOK ROUTER VÉGPONTOK
+
+    ###felhasználói végpontok
+
+###/vadaszatok VadaszatokGetController
+GET http://localhost:5000/vadaszatok
+Content-Type: application/json
+
+###/vadaszatok VadaszatPostController
+POST http://localhost:5000/vadaszatok
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjEsImlhdCI6MTc0MTg1MjQ1OCwiZXhwIjoxNzQxODU2MDU4fQ.uZgZm6HufU7LHY3Fry77TKvm6hL0Zft0ZNnVIVgByJQ
+
+{
+    "helyszin_id": 3,
+    "vadfaj_id": 2,
+    "kezdete": "2025-09-11T00:00:00.000Z",
+    "vege": "2025-09-20T00:00:00.000Z"
+}
+
+###/vadaszatok/:id/csatlakozas VadaszatCsatlakozasGetController
+GET http://localhost:5000/vadaszatok/47/csatlakozas
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjEsImlhdCI6MTc0MTg2MzU0MCwiZXhwIjoxNzQxODY3MTQwfQ.Q47H3wcpxqRPhsmm17pgBfbrKl97AHOcq7iax7eXCSI
+
+###/vadaszatok/:id/csatlakozas VadaszatCsatlakozasPostController
+POST http://localhost:5000/vadaszatok/47/csatlakozas
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjEsImlhdCI6MTc0MTg2MzU0MCwiZXhwIjoxNzQxODY3MTQwfQ.Q47H3wcpxqRPhsmm17pgBfbrKl97AHOcq7iax7eXCSI
+
+###/vadaszatok/:id/csatlakozas VadaszatLecsatlakozasDeleteController
+DELETE http://localhost:5000/vadaszatok/47/csatlakozas
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjEsImlhdCI6MTc0MTg2MzU0MCwiZXhwIjoxNzQxODY3MTQwfQ.Q47H3wcpxqRPhsmm17pgBfbrKl97AHOcq7iax7eXCSI
+
+###/vadaszatok/:id/torles VadaszatDeleteController
+DELETE http://localhost:5000/vadaszatok/51/torles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjEsImlhdCI6MTc0MTg2MzU0MCwiZXhwIjoxNzQxODY3MTQwfQ.Q47H3wcpxqRPhsmm17pgBfbrKl97AHOcq7iax7eXCSI
+
+    ###admin végpontok
+
+###/vadaszatok/:id VadaszatAdminDeleteController
+DELETE http://localhost:5000/vadaszatok/48
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDcsImVtYWlsIjoiVGVzenRAdGVzenQuY29tIiwidGlwdXMiOjEsImlhdCI6MTc0MTg2MzU0MCwiZXhwIjoxNzQxODY3MTQwfQ.Q47H3wcpxqRPhsmm17pgBfbrKl97AHOcq7iax7eXCSI

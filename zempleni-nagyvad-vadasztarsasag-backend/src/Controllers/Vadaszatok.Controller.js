@@ -159,7 +159,7 @@ export default{
             if(!vadaszat){
                 return res.status(404).json({
                     error: true,
-                    message: "A vadászat nem található!"
+                    message: "A kapcsolat nem található!"
                 });
             }
             await vadaszat.destroy();
