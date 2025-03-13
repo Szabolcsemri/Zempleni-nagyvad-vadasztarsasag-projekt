@@ -160,6 +160,13 @@ export default{
                     message: "A jelszónak minimum 8 karakter hosszúnak kell lennie!"
                 });
             }
+            const jelszoHelyes = /^(?=.*\d)[A-Za-z\d]{8,}$/.test(ujjelszo);
+            if (!jelszoHelyes){
+                return res.status(400).json({
+                    error: true,
+                    message: "A jelszónak minimum 8 karakter hosszúnak kell lennie és legalább egy számot tartalmaznia kell!"
+                });
+            }
             if(ujjelszo !== jelszoujra){
                 return res.status(400).json({
                     error: true,
