@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/ea900f47-2409-4127-a814-5a8c639bcd1e)
+# Szent István Katolikus Technikum és Gimnázium 
+
 # Zempléni Nagyvad Vadásztársaság
 
 ## Készítők
