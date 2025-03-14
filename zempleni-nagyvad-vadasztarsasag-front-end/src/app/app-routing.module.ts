@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FejlecComponent } from './fejlec/fejlec.component';
 import { RegisztracioComponent } from './regisztracio/regisztracio.component';
 import { BejelentkezesComponent } from './bejelentkezes/bejelentkezes.component';
 import { FoldalComponent } from './foldal/foldal.component';
@@ -12,14 +11,13 @@ import { SzervezesComponent } from './szervezes/szervezes.component';
 import { EnciklopediaComponent } from './enciklopedia/enciklopedia.component';
 import { FormsModule } from '@angular/forms';
 import { FelhasznaloAdatokComponent } from './felhasznalo-adatok/felhasznalo-adatok.component';
-import { FelhasznalokComponent } from './felhasznalok/felhasznalok.component';
+
 
 
 
 
 const routes: Routes = [
   { path: '', component: FoldalComponent }, 
-  { path: 'fejlec', component: FejlecComponent },
   { path: 'regisztracio', component: RegisztracioComponent },
   { path: 'bejelentkezes', component: BejelentkezesComponent },
   { path: 'foldal', component: FoldalComponent },
@@ -30,7 +28,7 @@ const routes: Routes = [
   { path: 'szervezes', component: SzervezesComponent },
   { path: 'enciklopedia', component: EnciklopediaComponent },
   { path: 'felhasznalo-adatok', component: FelhasznaloAdatokComponent },
-  { path: 'felhasznalok', component: FelhasznalokComponent }
+  
 ];
 
 @NgModule({

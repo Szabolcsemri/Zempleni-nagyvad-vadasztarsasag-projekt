@@ -26,7 +26,7 @@ csatlakozott: boolean = false;
         this.csatlakozott = response.csatlakozott;
       });
     }
-    console.log("FoglalasComponent kapott vadaszat objektuma HEEEEEEEE:", this.vadaszat);
+    console.log("FoglalasComponent kapott vadaszat objektuma:", this.vadaszat);
   }
 
   csatlakozas(vadaszatId: number) {

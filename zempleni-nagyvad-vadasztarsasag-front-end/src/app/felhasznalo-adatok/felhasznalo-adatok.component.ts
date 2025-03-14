@@ -61,6 +61,13 @@ export class FelhasznaloAdatokComponent implements OnInit {
     if (this.profileForm.valid) {
       const { jelszo, ujjelszo, jelszoujra } = this.profileForm.value;
 
+      const jelszoRegex = /^(?=.*\d)[A-Za-z\d]{8,}$/;
+    if (!jelszoRegex.test(ujjelszo)) {
+      this.uzenet = 'A jelszónak minimum 8 karakterből kell állnia, és tartalmaznia legalább egy számot.';
+      this.allapot = 'error';
+      return;
+    }
+
       if (ujjelszo !== jelszoujra) {
         this.uzenet = 'A két jelszó nem egyezik!';
         this.allapot = 'error';
