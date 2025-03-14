@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 12. 19:35
--- Kiszolgáló verziója: 10.4.22-MariaDB
--- PHP verzió: 8.1.1
+-- Létrehozás ideje: 2025. Már 14. 17:38
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,11 +31,11 @@ USE `zempleninagyvadvadasztarsasag`;
 
 CREATE TABLE `felhasznalo` (
   `felhasznalo_id` int(11) NOT NULL,
-  `jelszo` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `keresztnev` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `jelszo` varchar(255) NOT NULL,
+  `keresztnev` varchar(40) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
   `regisztracio_datum` datetime DEFAULT NULL,
-  `vezeteknev` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `vezeteknev` varchar(50) DEFAULT NULL,
   `tipus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -86,7 +86,7 @@ INSERT INTO `foglaltvadaszat` (`foglalt_vadaszat_id`, `helyszin_id`, `vadfaj_id`
 
 CREATE TABLE `helyszin` (
   `helyszin_id` int(11) NOT NULL,
-  `nev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL
+  `nev` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -103,19 +103,19 @@ INSERT INTO `helyszin` (`helyszin_id`, `nev`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `vadaszat_fehlasznalo_kapcsolat`
+-- Tábla szerkezet ehhez a táblához `vadaszat_felhasznalo_kapcsolat`
 --
 
-CREATE TABLE `vadaszat_fehlasznalo_kapcsolat` (
+CREATE TABLE `vadaszat_felhasznalo_kapcsolat` (
   `foglalt_vadaszat_id` int(11) NOT NULL,
   `felhasznalo_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
--- A tábla adatainak kiíratása `vadaszat_fehlasznalo_kapcsolat`
+-- A tábla adatainak kiíratása `vadaszat_felhasznalo_kapcsolat`
 --
 
-INSERT INTO `vadaszat_fehlasznalo_kapcsolat` (`foglalt_vadaszat_id`, `felhasznalo_id`) VALUES
+INSERT INTO `vadaszat_felhasznalo_kapcsolat` (`foglalt_vadaszat_id`, `felhasznalo_id`) VALUES
 (45, 39),
 (45, 41),
 (46, 39),
@@ -134,8 +134,8 @@ INSERT INTO `vadaszat_fehlasznalo_kapcsolat` (`foglalt_vadaszat_id`, `felhasznal
 
 CREATE TABLE `vadfaj` (
   `vadfaj_id` int(11) NOT NULL,
-  `nev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `foto_url` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
+  `nev` varchar(255) NOT NULL,
+  `foto_url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -176,9 +176,9 @@ ALTER TABLE `helyszin`
   ADD PRIMARY KEY (`helyszin_id`);
 
 --
--- A tábla indexei `vadaszat_fehlasznalo_kapcsolat`
+-- A tábla indexei `vadaszat_felhasznalo_kapcsolat`
 --
-ALTER TABLE `vadaszat_fehlasznalo_kapcsolat`
+ALTER TABLE `vadaszat_felhasznalo_kapcsolat`
   ADD PRIMARY KEY (`foglalt_vadaszat_id`,`felhasznalo_id`),
   ADD KEY `felhasznalo_id` (`felhasznalo_id`);
 
@@ -229,11 +229,11 @@ ALTER TABLE `foglaltvadaszat`
   ADD CONSTRAINT `foglaltvadaszat_ibfk_3` FOREIGN KEY (`vadfaj_id`) REFERENCES `vadfaj` (`vadfaj_id`);
 
 --
--- Megkötések a táblához `vadaszat_fehlasznalo_kapcsolat`
+-- Megkötések a táblához `vadaszat_felhasznalo_kapcsolat`
 --
-ALTER TABLE `vadaszat_fehlasznalo_kapcsolat`
-  ADD CONSTRAINT `vadaszat_fehlasznalo_kapcsolat_ibfk_1` FOREIGN KEY (`foglalt_vadaszat_id`) REFERENCES `foglaltvadaszat` (`foglalt_vadaszat_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `vadaszat_fehlasznalo_kapcsolat_ibfk_2` FOREIGN KEY (`felhasznalo_id`) REFERENCES `felhasznalo` (`felhasznalo_id`) ON DELETE CASCADE;
+ALTER TABLE `vadaszat_felhasznalo_kapcsolat`
+  ADD CONSTRAINT `vadaszat_felhasznalo_kapcsolat_ibfk_1` FOREIGN KEY (`foglalt_vadaszat_id`) REFERENCES `foglaltvadaszat` (`foglalt_vadaszat_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `vadaszat_felhasznalo_kapcsolat_ibfk_2` FOREIGN KEY (`felhasznalo_id`) REFERENCES `felhasznalo` (`felhasznalo_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
