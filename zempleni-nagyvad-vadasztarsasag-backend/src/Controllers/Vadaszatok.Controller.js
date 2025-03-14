@@ -56,7 +56,6 @@ export default{
                 vadfaj_id,
                 kezdete,
                 vege,
-                statusz: 'lefoglalt',
                 letrehozo_felhasznalo_id: req.user.id
             });
 
@@ -90,7 +89,9 @@ export default{
                     felhasznalo_id: felhasznaloId
                 }
         });
-        res.json({
+        res.status(200).json({
+            error: false,
+            message: "Csatlakozás ellenőrizve!",
             csatlakozott: !!kapcsolat
         });
         } catch (err) {
@@ -112,7 +113,7 @@ export default{
                 foglalt_vadaszat_id: vadaszatId,
                 felhasznalo_id: felhasznaloId
             });
-            res.json({
+            res.status(200).json({
                 error: false,
                 message: "Sikeres csatlakozás a vadászathoz!"
             });
@@ -134,7 +135,7 @@ export default{
                     felhasznalo_id: felhasznaloId
                 }
             });
-            res.json({
+            res.status(200).json({
                 error: false,
                 message: "Sikeres lecsatlakozás a vadászatról!"
             });

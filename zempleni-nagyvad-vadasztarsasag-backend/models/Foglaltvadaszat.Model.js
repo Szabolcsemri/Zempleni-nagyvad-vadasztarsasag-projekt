@@ -23,10 +23,6 @@ const Foglaltvadaszat = sequelize.define('foglaltvadaszat', {
         type: DataTypes.DATE,
         allowNull: true
     },
-    statusz: {
-        type: DataTypes.ENUM('lefoglalt', 'teljesitve', 'lemondva'),
-        defaultValue: 'lefoglalt'
-    },
     letrehozo_felhasznalo_id: {
         type: DataTypes.INTEGER,
         allowNull: false
