@@ -64,7 +64,7 @@ export default{
                 felhasznalo_id: req.user.id
             });
 
-            res.status(201).json({
+            res.status(200).json({
                 error: false,
                 message: "Vadászat sikeresen lefoglalva!",
                 foglalas: ujFoglalas

@@ -154,12 +154,6 @@ export default{
                     message: "Felhasználó nem található!"
                 });
             }
-            if (ujjelszo.length < 8){
-                return res.status(400).json({
-                    error: true,
-                    message: "A jelszónak minimum 8 karakter hosszúnak kell lennie!"
-                });
-            }
             const jelszoHelyes = /^(?=.*\d)[A-Za-z\d]{8,}$/.test(ujjelszo);
             if (!jelszoHelyes){
                 return res.status(400).json({
@@ -227,12 +221,6 @@ export default{
                     message: "A jelszónak minimum 8 karakter hosszúnak kell lennie és legalább egy számot tartalmaznia kell!"
                 });
             }
-            if (jelszo.length < 8){
-                return res.status(400).json({
-                    error: true,
-                    message: "A jelszónak minimum 8 karakter hosszúnak kell lennie!"
-                });
-            }
             if (jelszo !== jelszoujra){
                 return res.status(400).json({
                     error: true,
@@ -263,43 +251,6 @@ export default{
             res.status(500).json({
                 error: true,
                 message: 'Hiba történt regisztráció során.'
-            });
-        }
-    },
-    VerifyTokenController(req, res){
-        const token = req.headers['authorization']?.split(' ')[1];
-        if(!token){
-            return res.status(401).json({
-                error: true,
-                message: "Token hiányzik!"
-            });
-        }
-        try{
-            const decoded = jwt.verify(token, JWT_SECRET);
-            res.status(200).json({
-                error: false,
-                message: "Token érvényes",
-                data: decoded
-            });
-        }catch(err){
-            console.error('Érvénytelen token:', err);
-            res.status(401).json({
-                error: true,
-                message: "Érvénytelen vagy lejárt token"
-            });
-        }
-    },
-    LogoutPostController(req, res){
-        try{
-            res.status(200).json({
-                error: false,
-                message: "Sikeres kijelentkezés!"
-            });
-        }catch(err){
-            console.error('Hiba történt kijelentkezés során:', err);
-            res.status(500).json({
-                error: true,
-                message: "Hiba történt kijelentkezés során!"
             });
         }
     }
