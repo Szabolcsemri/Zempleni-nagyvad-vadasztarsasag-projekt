@@ -11,7 +11,7 @@ const VadaszatFelhasznaloKapcsolat = sequelize.define('vadaszat_felhasznalo_kapc
         primaryKey: true
     }
 }, {
-    tableName: 'vadaszat_fehlasznalo_kapcsolat',
+    tableName: 'vadaszat_felhasznalo_kapcsolat',
     timestamps: false
 });
 
