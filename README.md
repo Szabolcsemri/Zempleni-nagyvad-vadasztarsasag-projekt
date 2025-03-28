@@ -1,5 +1,8 @@
-![image](https://github.com/user-attachments/assets/ea900f47-2409-4127-a814-5a8c639bcd1e)
-# Szent István Katolikus Technikum és Gimnázium 
+
+<p align="center"><img src="https://github.com/user-attachments/assets/ea900f47-2409-4127-a814-5a8c639bcd1e" width="150px" height="200">
+<br>
+ Szent István Katolikus Technikum és Gimnázium 
+</p>
 
 # Zempléni Nagyvad Vadásztársaság
 
@@ -12,6 +15,8 @@
 A Zempléni Nagyvad Vadásztársaság weboldala segítséget nyújt a vadászatok szervezésében. Az oldal lehetőséget biztosít a felhasználók számára, hogy csatlakozzanak egy már létrehozott vadászathoz. Nincs más teendő, mint regisztrálni és bejelentkezni az oldalra.
 
 Az oldal nemcsak vadászok számára hasznos, hanem azok számára is, akik szeretnének többet megtudni a vadászatról. Az enciklopédia és a képgaléria révén az érdeklődők is értékes információkhoz juthatnak. A projekt egy helyi vadásztársaság számára készült, és minden szükséges információt tőlük kaptunk, teljes beleegyezésükkel.
+
+A csapatmuka a Trello-ban megtekinthető: https://trello.com/w/zempleninagyvadvadasztarsasagbenkosemseiemri/home 
 
 ---
 
