@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    
+    <h2>Profil Adatok</h2>
+    <div *ngIf="felhasznalo">
+      <p><strong>Keresztnév:</strong> {{ felhasznalo.keresztnev }}</p>
+      <p><strong>Vezetéknév:</strong> {{ felhasznalo.vezeteknev }}</p>
+      <p><strong>Email:</strong> {{ felhasznalo.email }}</p>
+    </div>
+  
+    <hr>
+  
+    
+    <h2>Jelszó Módosítás</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="jelszo">Jelenlegi Jelszó</label>
+        <input type="password" id="jelszo" formControlName="jelszo" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="ujjelszo">Új Jelszó</label>
+        <input type="password" id="ujjelszo" formControlName="ujjelszo" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="jelszoujra">Új Jelszó Újra</label>
+        <input type="password" id="jelszoujra" formControlName="jelszoujra" class="form-control" />
+      </div>
+      <button type="submit" [disabled]="profileForm.invalid" class="btn btn-primary mt-3">Jelszó Módosítása</button>
+    </form>
+    <div class="mt-4">
+      <button 
+        class="btn btn-danger" 
+        (click)="onDeleteProfile()">
+        Fiók Törlése
+      </button>
+    </div>
+    
+    
+    <div *ngIf="uzenet" class="mt-3" [ngClass]="{'alert-success': allapot === 'success', 'alert-danger': allapot === 'error'}" class="alert">
+      {{ uzenet }}
+    </div>
+</div>
+<div *ngIf="isAdmin">
+  <h2>Felhasználók</h2>
+  
+  <div class="card-container">
+    <div *ngFor="let user of felhasznalok" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ user.keresztnev }} {{ user.vezeteknev }}</h5>
+        <p class="card-text">
+          Felhasználó azonoító: {{ user.felhasznalo_id }} <br>
+          Email: {{ user.email }} <br>
+          Regisztráció: {{ user.regisztracio_datum | date:'y. MMMM d.' }}
+        </p>
+        <button class="btn btn-danger" (click)="onDeleteUser(user.felhasznalo_id)">Törlés</button>
+      </div>
+    </div>
+  </div>
+</div>

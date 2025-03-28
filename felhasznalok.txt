@@ -1,0 +1,11 @@
+Minden felhasználónak a jelszava: jelszo123
+
+Admin jogosultságú felhasználó email címe:
+bence.kovacs@example.com
+
+Felhasználók email címe:
+anna.nagy@example.com
+levente.toth@example.com
+dora.szabo@example.com
+gabor.varga@example.com
+eva.kiss@example.com

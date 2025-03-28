@@ -1,0 +1,18 @@
+<div class="container mt-5">
+   <h1>Vadászatok</h1>
+    <p class="text-center text-muted">
+        Üdvözlünk a vadászatok központjában! Itt lehetőséged nyílik egyedi élményekkel gazdagodni: válassz a legjobb vadászati ajánlatok közül, és foglald le a helyed még ma!  
+        Ha szereted a természetet, az izgalmas kihívásokat és a profi vezetést, nálunk garantáltan megtalálod a következő kalandodat.  
+        Csatlakozz a közösségünkhöz, és oszd meg tapasztalataid más természetkedvelőkkel. Böngéssz vadászataink között, és éld át a pillanatot, amikor minden más megszűnik körülötted – csak te és a természet maradtok!
+    </p>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-6  col-lg-3 d-flex justify-content-center mb-4" *ngFor="let vadaszat of vadaszatok">
+          <app-foglalas [vadaszat]="vadaszat"></app-foglalas>
+        </div>
+        <div class="szervezes-gomb">
+          <button class="btn btn-outline-success " type="button" [routerLink]="'/szervezes'">Szervezés</button>
+        </div>
+      </div>
+  </div>
+  
